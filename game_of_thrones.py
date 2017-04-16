@@ -7,16 +7,38 @@ import numpy as np
 
 
 def main():
-    data_frame = pd.read_csv('test_data_set.csv')
-    print(data_frame)
 
-    # dummies
-    df_with_dummies = pd.get_dummies(data_frame, columns=['house'])
+    no_of_outputs = 2
 
-    clf = tree.DecisionTreeClassifier()
-    target_column = df_with_dummies['is_alive'].values
-    df_data = df_with_dummies.drop('is_alive', axis=1)
-    print(df_data.loc[:, :].values)
+    # Read csv and make data frame
+    df = pd.read_csv('character_predictions.csv')
+    print(df)
+
+    # convert categorical variable
+    df_dummies = pd.get_dummies(df, columns=['house'])
+
+    # Extract the predict row
+    df_predict = df_dummies.tail(2).drop(['is_alive', 'name', 's_no'], axis=1)
+
+    # Remove outputs
+    df_input = df_dummies[:-no_of_outputs]
+
+    # Select Target values
+    df_target_values = df_input['is_alive'].values
+
+    # Select Input values
+    df_input_values = df_input.drop(['is_alive', 'name', 's_no'], axis=1).iloc[:, :].values
+
+    # Build classifier
+    clf = DecisionTreeClassifier()
+    clf = clf.fit(df_input_values, df_target_values)
+
+    class_weight = {
+
+    }
+
+    predicted_value = clf.predict(df_predict)
+    print(predicted_value)
 
 
 if __name__ == '__main__':
