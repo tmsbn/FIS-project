@@ -1,0 +1,7 @@
+s_no,name,male,house,popular,book0,book1,book2,book3,book4,is_alive,plod
+1,tom,1,tar,1,0,0,1,0,0,1,0.45
+2,joe,1,gre,0,1,1,0,0,0,1,0.68
+3,gan,0,lan,0,0,1,1,1,0,0,0.87
+4,lee,0,sta,0,0,1,1,1,0,1,0.18
+5,leo,1,un,1,1,0,1,0,1,1,0.64
+6,sam,0,tar,1,1,1,1,1,1,1,0.98
