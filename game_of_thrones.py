@@ -29,13 +29,13 @@ def main():
     # Select Input values
     df_input_values = df_input.drop(['is_alive', 'name', 's_no'], axis=1).iloc[:, :].values
 
-    # Build classifier
-    clf = DecisionTreeClassifier()
-    clf = clf.fit(df_input_values, df_target_values)
-
-    class_weight = {
-
+    cw = {
+        2: 4
     }
+
+    # Build classifier
+    clf = DecisionTreeClassifier(class_weight=cw)
+    clf = clf.fit(df_input_values, df_target_values)
 
     predicted_value = clf.predict(df_predict)
     print(predicted_value)
