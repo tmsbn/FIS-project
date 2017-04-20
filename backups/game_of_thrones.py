@@ -1,6 +1,7 @@
 import pandas as pd
 
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn import tree
 import numpy as np
@@ -40,10 +41,17 @@ def main():
     clf = DecisionTreeClassifier()
     clf = clf.fit(df_input_values, df_target_values)
 
-    predicted_value = clf.predict(df_test.values)
-    predicted_prob = clf.predict_proba(df_test.values)
-    print(predicted_value)
-    print(predicted_prob)
+
+    # # Models
+    # decisionTreeClassifer = DecisionTreeClassifier()
+    # RandomFor
+    #
+    # models = [), ]
+    #
+    # predicted_value = clf.predict(df_test.values)
+    # predicted_prob = clf.predict_proba(df_test.values)
+    # print(predicted_value)
+    # print(predicted_prob)
 
 
 if __name__ == '__main__':
