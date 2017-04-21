@@ -82,17 +82,36 @@ def main():
             predicted_value = clf.predict(df_test_values)
             count = 0
             value_length = len(actual_values)
+            print(value_length)
+
+            confusion_matrix = [0] * 4
 
             for i in range(0, value_length):
+
                 if predicted_value[i] == actual_values[i]:
                     count += 1
 
+                if predicted_value[i] == actual_values[i]:
+                    if predicted_value[i] == 1:
+                        confusion_matrix[3] += 1
+                    else:
+                        confusion_matrix[0] += 1
+                if predicted_value[i] != actual_values[i]:
+                    if predicted_value[i] == 1:
+                        confusion_matrix[1] += 1
+                    else:
+                        confusion_matrix[2] += 1
+
             print(type(clf).__name__)
             print(str(count) + ' out of ' + str(value_length) + ' which is ' + str(count / value_length * 100.0))
+            print('Confusion matrix:')
+            print(confusion_matrix)
+
+            confusion_matrix.clear()
 
         print("\n")
 
-            # visualize_tree(clf, column_names)
+        # visualize_tree(clf, column_names)
 
 
 if __name__ == "__main__":
