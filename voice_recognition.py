@@ -4,7 +4,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn import tree
 from sklearn.tree import _tree
 from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LogisticRegression
+from sklearn.linear_model import LogisticRegression, LinearRegression
 import pydot
 
 
@@ -70,7 +70,7 @@ def main():
 
     models = [lg_clf, dt_clf, rf_clf]
 
-    for j in range(0, 3):
+    for j in range(0, 5):
 
         print("Iteration " + str(j + 1) + ":\n")
 
